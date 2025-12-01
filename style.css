@@ -1,0 +1,68 @@
+:root {
+    --bg-color: #F5F5F5; /* The brochure background color */
+    --text-color: #1C1F21;
+    --accent: #88D629; /* Your Green */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Mono', monospace; /* The "System" font */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+}
+
+/* THE PIXEL AESTHETIC */
+.pixel-border, .card, .btn-pixel {
+    border: 4px solid var(--text-color);
+    background: white;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.card {
+    padding: 30px;
+}
+
+/* BUTTONS */
+.btn-pixel {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--text-color);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn-pixel:hover {
+    background: var(--accent);
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+/* RESPONSIVE (Mobile) */
+@media (max-width: 768px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+}
