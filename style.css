@@ -1,21 +1,21 @@
 :root {
-    --bg-color: #F5F5F5; /* The brochure background color */
+    --bg-color: #F5F5F5;
     --text-color: #1C1F21;
-    --accent: #88D629; /* Your Green */
+    --accent: #88D629;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Space Mono', monospace; /* The "System" font */
+    font-family: 'Space Mono', monospace;
     margin: 0;
-    padding: 20px;
+    padding: 16px;
     line-height: 1.5;
 }
 
 .container {
     max-width: 900px;
-    margin: 0 auto 80px auto;
+    margin: 0 auto 64px auto;
 }
 
 /* THE PIXEL AESTHETIC */
@@ -24,69 +24,30 @@ body {
     background: white;
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 60px;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    letter-spacing: -2px;
-}
-
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-.card {
-    padding: 30px;
-}
-
-/* BUTTONS */
-.btn-pixel {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--text-color);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.btn-pixel:hover {
-    background: var(--accent);
-    color: var(--text-color);
-    border-color: var(--text-color);
-}
-
-/* RESPONSIVE (Mobile) */
-@media (max-width: 768px) {
-    .grid-3, .grid-2 { grid-template-columns: 1fr; }
-    h1 { font-size: 2rem; }
-}/* ...existing code... */
-
 nav.pixel-border {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center; /* center the logo group */
-    position: relative;      /* allow .status to be positioned at the right */
+    justify-content: center;
+    position: relative;
     padding: 12px 20px;
+    margin-bottom: 48px;
 }
 
 nav .logo {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: 700;
 }
 
 nav .logo .nav-logo {
-    width: 32px !important;
-    height: 32px !important;
+    width: 56px;
+    height: 56px;
     max-width: 100%;
     display: block;
+    padding: 56px 0;
 }
 
 nav .status {
@@ -96,10 +57,14 @@ nav .status {
     transform: translateY(-50%);
 }
 
-/* responsive */
-@media (max-width: 600px) {
-    nav .logo .nav-logo { width: 24px !important; height: 24px !important; }
-    nav .status { right: 8px; font-size: 12px; }
+/* RESPONSIVE (Mobile) */
+@media (max-width: 768px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
 }
 
-/* ...existing code... */
+/* responsive */
+@media (max-width: 600px) {
+    nav .logo .nav-logo { width: 40px; height: 40px; padding: 40px 0; }
+    nav .status { right: 8px; font-size: 12px; }
+}
