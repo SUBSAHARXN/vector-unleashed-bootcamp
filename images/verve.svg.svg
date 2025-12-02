@@ -1,0 +1,22 @@
+<svg width="200" height="128" viewBox="0 0 200 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_374_112)">
+<path d="M4 4H196V124H4V4Z" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M33 52V68H41V76H49V68H57V52" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M91 52V76" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M99 52H103V64C103 64 102.124 64 99 64" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M107 76C107 74.4379 107 64 107 64" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M121 52V68H129V76H137V68H145V52" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M155 60V76H167" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M67 60V76H79" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M155 52H167" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M67 52H79" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M159 64H165" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<path d="M71 64H77" stroke="#3E403B" stroke-width="8" stroke-linecap="square"/>
+<rect x="95" y="52" width="4" height="4" fill="#E1E2DF"/>
+</g>
+<defs>
+<clipPath id="clip0_374_112">
+<rect width="200" height="128" fill="white"/>
+</clipPath>
+</defs>
+</svg>
