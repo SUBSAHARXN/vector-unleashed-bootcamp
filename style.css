@@ -15,7 +15,7 @@ body {
 
 .container {
     max-width: 900px;
-    margin: 0 auto 64px auto;
+    margin: 0 auto 40px auto;
 }
 
 /* THE PIXEL AESTHETIC */
@@ -26,28 +26,31 @@ body {
 
 nav.pixel-border {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 12px 20px;
+    padding: 80px 72px;
     margin-bottom: 32px;
+    gap: 16px;
 }
 
 nav .logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 24px;
     font-weight: 700;
+    position: absolute;
+    left: 20px;
+    font-size: 24px;
 }
 
 nav .logo .nav-logo {
-    width: 72px;
     height: 72px;
     max-width: 100%;
     display: block;
-    padding: 56px 0;
+    padding: 0;
 }
 
 nav .status {
@@ -81,7 +84,7 @@ h2 {
 }
 
 .card.highlight {
-    background: var(--accent);
+    background: var(--bg-color); /* Note: This is currently set to gray. Change to var(--accent) if you want it green. */
     color: var(--text-color);
 }
 
@@ -131,16 +134,34 @@ h2 {
     color: white;
 }
 
+/* NEW STACK CONTAINER */
+.payment-stack {
+    display: flex;
+    flex-direction: column; /* Stacks icons on top of text */
+    align-items: center;    /* Centers everything horizontally */
+    margin-top: 48px;       /* Spacing from the button above */
+}
+
+/* UPDATED ICONS */
 .payment-icons {
     display: flex;
     gap: 12px;
-    margin-top: 16px;
+    margin-top: 0;          /* Removed margin (handled by .payment-stack now) */
     justify-content: center;
 }
 
 .payment-icons img {
     height: 32px;
     width: auto;
+}
+
+.more-label {
+    font-size: 12px;
+    padding: 12px;
+    text-align: center;
+    color: var(--text-color);
+    width: 100%;
+    display: block;
 }
 
 .link {
