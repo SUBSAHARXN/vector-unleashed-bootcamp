@@ -30,20 +30,18 @@ nav.pixel-border {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 80px 72px;
-    margin-bottom: 32px;
+    padding: 72px 72px; /* Kept exactly as requested */
+    margin-bottom: 24px;
     gap: 16px;
 }
 
+/* UPDATED: Logo stays left, but no longer handles text */
 nav .logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-    font-weight: 700;
     position: absolute;
     left: 20px;
-    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Removed flex/gap since text is gone */
 }
 
 nav .logo .nav-logo {
@@ -51,6 +49,17 @@ nav .logo .nav-logo {
     max-width: 100%;
     display: block;
     padding: 0;
+}
+
+/* NEW: Handles the top text */
+.nav-title {
+    position: absolute;
+    top: 24px;              /* Puts text near the top */
+    left: 0;
+    width: 100%;            /* Spans full width for centering */
+    text-align: center;     /* Centers text horizontally */
+    font-weight: 700;
+    font-size: 24px;        /* Moved font size here */
 }
 
 nav .status {
@@ -84,7 +93,7 @@ h2 {
 }
 
 .card.highlight {
-    background: var(--bg-color); /* Note: This is currently set to gray. Change to var(--accent) if you want it green. */
+    background: var(--bg-color);
     color: var(--text-color);
 }
 
@@ -137,16 +146,16 @@ h2 {
 /* NEW STACK CONTAINER */
 .payment-stack {
     display: flex;
-    flex-direction: column; /* Stacks icons on top of text */
-    align-items: center;    /* Centers everything horizontally */
-    margin-top: 48px;       /* Spacing from the button above */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 48px;
 }
 
 /* UPDATED ICONS */
 .payment-icons {
     display: flex;
     gap: 12px;
-    margin-top: 0;          /* Removed margin (handled by .payment-stack now) */
+    margin-top: 0;
     justify-content: center;
 }
 
@@ -156,12 +165,13 @@ h2 {
 }
 
 .more-label {
-    font-size: 12px;
-    padding: 12px;
+    font-size: 14px;
+    padding: 8px;
     text-align: center;
     color: var(--text-color);
     width: 100%;
     display: block;
+    font-weight: bold;
 }
 
 .link {
