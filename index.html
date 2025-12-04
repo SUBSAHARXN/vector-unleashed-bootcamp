@@ -3,30 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vector Unleashed | Prt Design Bootcamp</title>
+    <title>Vector Unleashed | Product Design Bootcamp</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="pixel-border">
+    <nav class="pixel-border sticky-nav">
         <div class="logo">
             <img src="images/logo.svg" alt="Vector Unleashed Logo" class="nav-logo">
         </div>
 
-        <div class="nav-title">VECTOR UNLEASHED ACADEMY</div>
+        <div class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#curriculum">CURRICULUM</a>
+            <a href="#tuition">TUITION</a>
+            <a href="#">FAQS</a>
+        </div>
 
-        <div class="status">REGISTRATION OPEN</div>
+        <a href="#tuition" class="nav-cta">ENROLL NOW</a>
     </nav>
 
     <header class="container">
         <h1>STOP GUESSING.<br>START DESIGNING.</h1>
         <p class="subtitle">A Logic-First Product Design Bootcamp. Powered by Subtle Shoppers.</p>
-        <a href="#tuition" class="btn-pixel">SECURE MY SEAT</a>
+        
+        <div class="cta-group">
+            <a href="#tuition" class="btn-pixel">SECURE MY SEAT</a>
+            <a href="#curriculum" class="btn-pixel-inverse">VIEW CURRICULUM</a>
+        </div>
     </header>
 
+    <section id="about" class="container" style="margin-top: 80px;">
+        
+        <div style="max-width: 700px;">
+            <h1>ABOUT<span class="accent-dot">.</span></h1>
+            <p class="subtitle" style="color: var(--body-color); font-size: 1.2rem;">
+                Traditional design education is bloated. Four-year theories. Outdated tools. Pretty pixels without underlying logic. Vector Unleashed exists to correct this error. We build systems thinkers, not just Figma operators.
+            </p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="mission-grid">
+            <div>
+                <h2>OUR MISSION<span class="accent-dot">.</span></h2>
+                <p>To establish the most rigorous, logic-first baseline for product designers in Africa. We are eliminating the guesswork between "learning design" and "shipping products."</p>
+                <p>Starting January 2026, our inaugural cohort will undergo 16 weeks of high-intensity structural training. We are not focused on mass output; we are focused on engineering elite product competence.</p>
+            </div>
+            
+            <div class="card stats-card">
+                <h3 class="stats-header">SYSTEM METRICS</h3>
+                <div class="stat-row">
+                    <span>Instructional Hours</span>
+                    <span class="highlight">300+</span>
+                </div>
+                <div class="stat-row">
+                    <span>Major Core Projects</span>
+                    <span class="highlight">4 SYSTEMS</span>
+                </div>
+            
+                 <div class="stat-row" style="border-bottom: none;">
+                    <span>Launch Date</span>
+                    <span class="highlight">JAN 5, 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>TEACHING PHILOSOPHY<span class="accent-dot">.</span></h2>
+        <div class="philosophy-grid">
+            <div class="card philosophy-card">
+                <h3>1. STRUCTURAL LOGIC FIRST</h3>
+                <p>We do not touch pixels until the system is mapped. You will spend the first month analyzing problems, defining user flows, and architecting information hierarchies. Aesthetics are a byproduct of structure.</p>
+            </div>
+            <div class="card philosophy-card">
+                <h3>2. SYSTEM OVER SCREEN</h3>
+                <p>Modern products are not isolated screens; they are interconnected ecosystems. We teach scalable component architecture and design systems thinking from day one. Build for scale, not just a Dribbble shot.</p>
+            </div>
+            <div class="card philosophy-card">
+                <h3>3. RIGOROUS ITERATION</h3>
+                <p>Your first solution is rarely the right one. We prioritize testing, data input, and breaking your own designs. Brutal feedback loops prepare you for the reality of product teams.</p>
+            </div>
+            <div class="card philosophy-card">
+                <h3>4. SHIP READY</h3>
+                <p>Theory ends where deployment begins. The capstone is not a hypothetical case study; it is a functional product prototype, documented and ready for engineering handoff.</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>INSTRUCTORS<span class="accent-dot">.</span></h2>
+        <div class="instructor-grid">
+            <div class="card instructor-card">
+                <div class="placeholder-img">I.D.</div>
+                <h3>[NAME PLACEHOLDER]</h3>
+                <span class="instructor-role">LEAD INSTRUCTOR</span>
+                <p class="small">10+ years shipping complex SaaS products. Specializes in information architecture and backend-aligned design.</p>
+                <div class="social-placeholders">
+                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
+                    <div class="social-icon-box" title="X Placeholder"></div>
+                </div>
+            </div>
+
+            <div class="card instructor-card">
+                <div class="placeholder-img">T.B.</div>
+                <h3>[NAME PLACEHOLDER]</h3>
+                <span class="instructor-role">INTERFACE LEAD</span>
+                <p class="small">Expert in high-fidelity prototyping and interaction design. Bridges the gap between static Figma files and React environments.</p>
+                 <div class="social-placeholders">
+                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
+                    <div class="social-icon-box" title="X Placeholder"></div>
+                </div>
+            </div>
+
+            <div class="card instructor-card">
+                <div class="placeholder-img">A.O.</div>
+                <h3>[NAME PLACEHOLDER]</h3>
+                <span class="instructor-role">UX STRATEGY</span>
+                <p class="small">Focused on user testing methodologies and data-driven design decisions. Ensures structure precedes aesthetics.</p>
+                 <div class="social-placeholders">
+                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
+                    <div class="social-icon-box" title="WhatsApp Placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="container">
+        <div class="section-divider"></div>
+        
+        <h2>SYSTEM ARCHITECTURE (THE SYLLABUS)<span class="accent-dot">.</span></h2>
+        <p class="subtitle">16 Weeks. 4 Phases. From Logic to Launch.</p>
+
+        <div class="curriculum-stack">
+            <div class="card phase-card">
+                <div class="phase-header">
+                    <span class="phase-badge">PHASE 1</span>
+                    <span class="duration">WEEKS 1-4</span>
+                </div>
+                <h3>UX FOUNDATIONS & STRUCTURAL LOGIC</h3>
+                <p>Deconstructing problems. User research methodologies. Information Architecture (IA). Wireframing systems. No pixels yet—only logic.</p>
+            </div>
+
+            <div class="card phase-card">
+                <div class="phase-header">
+                    <span class="phase-badge">PHASE 2</span>
+                    <span class="duration">WEEKS 5-8</span>
+                </div>
+                <h3>VISUAL INTERFACE DESIGN</h3>
+                <p>Typography, color theory, and grid systems. Converting wireframes to high-fidelity UI. Introduction to Figma auto-layout and component properties.</p>
+            </div>
+
+            <div class="card phase-card">
+                <div class="phase-header">
+                    <span class="phase-badge">PHASE 3</span>
+                    <span class="duration">WEEKS 9-12</span>
+                </div>
+                <h3>PROTOTYPING & SYSTEMS</h3>
+                <p>Advanced prototyping (variables, conditionals). Building scalable design systems. Usability testing and iterative repair loops.</p>
+            </div>
+
+            <div class="card phase-card highlight">
+                <div class="phase-header">
+                    <span class="phase-badge" style="background: var(--accent); color: var(--text-color);">PHASE 4</span>
+                    <span class="duration">WEEKS 13-16</span>
+                </div>
+                <h3>CAPSTONE & PORTFOLIO</h3>
+                <p>Live client brief simulation. End-to-end product build. Case study documentation. Portfolio defense and interview prep.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="tuition" class="container">
+        <div class="section-divider"></div>
         <h2>ENROLLMENT & TUITION</h2>
         <div class="grid-2">
             <div class="card highlight">
