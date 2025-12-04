@@ -27,7 +27,7 @@ body {
 }
 
 /* THE PIXEL AESTHETIC (Borders stay deep black) */
-.pixel-border, .card, .btn-pixel, .nav-cta, .phase-card, .instructor-card {
+.pixel-border, .card, .btn-pixel, .nav-cta, .phase-card, .instructor-card, .commit-card {
     border: 4px solid var(--text-color);
     background: white;
 }
@@ -42,10 +42,8 @@ nav.pixel-border.sticky-nav {
     top: 0;
     z-index: 1000;
     background: white;
-    /* REDUCED PADDING to prevent wrapping */
     padding: 16px 24px; 
     margin-bottom: 40px;
-    /* REDUCED GAP */
     gap: 16px; 
 }
 
@@ -62,7 +60,6 @@ nav .logo .nav-logo {
 
 .nav-links {
     display: flex;
-    /* REDUCED GAP to fit 5 items */
     gap: 8px; 
     margin-top: 0;
 }
@@ -73,7 +70,6 @@ nav .logo .nav-logo {
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
-    /* REDUCED PADDING to fit 5 items */
     padding: 10px 12px; 
     border: 2px solid transparent;
     transition: all 0.2s ease;
@@ -94,7 +90,7 @@ nav .logo .nav-logo {
     font-weight: bold;
     font-size: 14px;
     border: 4px solid var(--text-color);
-    white-space: nowrap; /* Prevents "Enroll Now" from breaking */
+    white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -391,9 +387,78 @@ h1 .accent-dot, h2 .accent-dot {
     color: var(--caption-color);
 }
 
+/* --- TECHNOLOGIES SECTION --- */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.tech-badge {
+    border: 2px solid var(--text-color);
+    padding: 8px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: white;
+    transition: 0.2s;
+}
+
+.tech-badge:hover {
+    background: var(--text-color);
+    color: white;
+    transform: translate(-2px, -2px);
+}
+
+/* --- REQUIREMENTS SECTION --- */
+.req-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.pixel-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+}
+
+.pixel-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.check-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--text-color);
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Commit Card */
+.commit-card {
+    background: var(--text-color);
+    color: white;
+}
+
+.commit-card h3 {
+    color: white;
+    margin-top: 0;
+}
+
 /* RESPONSIVE */
 @media (max-width: 850px) {
-    .mission-grid, .philosophy-grid, .instructor-grid {
+    .mission-grid, .philosophy-grid, .instructor-grid, .req-grid {
         grid-template-columns: 1fr;
     }
     .stats-card { order: -1; }
