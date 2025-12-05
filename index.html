@@ -11,19 +11,29 @@
 <body>
 
     <nav class="pixel-border sticky-nav">
-        <div class="logo">
-            <img src="images/logo.svg" alt="Vector Unleashed Logo" class="nav-logo">
+        <div class="nav-header">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Vector Unleashed Logo" class="nav-logo">
+            </div>
+            
+            <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
 
-        <div class="nav-links">
-            <a href="#">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#curriculum">CURRICULUM</a>
-            <a href="#tuition">TUITION</a>
-            <a href="#">FAQS</a>
-        </div>
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="#" onclick="document.querySelector('nav').classList.remove('active')">HOME</a>
+                <a href="#about" onclick="document.querySelector('nav').classList.remove('active')">ABOUT</a>
+                <a href="#curriculum" onclick="document.querySelector('nav').classList.remove('active')">CURRICULUM</a>
+                <a href="#tuition" onclick="document.querySelector('nav').classList.remove('active')">TUITION</a>
+                <a href="#">FAQS</a>
+            </div>
 
-        <a href="#tuition" class="nav-cta">ENROLL NOW</a>
+            <a href="#tuition" class="nav-cta" onclick="document.querySelector('nav').classList.remove('active')">ENROLL NOW</a>
+        </div>
     </nav>
 
     <header class="container">
@@ -98,36 +108,52 @@
 
         <h2>INSTRUCTORS<span class="accent-dot">.</span></h2>
         <div class="instructor-grid">
+            
             <div class="card instructor-card">
-                <div class="placeholder-img">I.D.</div>
-                <h3>[NAME PLACEHOLDER]</h3>
+                <img src="images/David-Sampso.png" alt="David Sampson" class="instructor-img">
+                <h3>DAVID SAMPSON</h3>
                 <span class="instructor-role">LEAD INSTRUCTOR</span>
                 <p class="small">10+ years shipping complex SaaS products. Specializes in information architecture and backend-aligned design.</p>
+                
                 <div class="social-placeholders">
-                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
-                    <div class="social-icon-box" title="X Placeholder"></div>
+                    <a href="https://www.linkedin.com/in/david-sampson-designer/" target="_blank">
+                        <img src="images/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://x.com/Am_Davidsampson" target="_blank">
+                        <img src="images/twitter.svg" alt="X">
+                    </a>
                 </div>
             </div>
 
             <div class="card instructor-card">
-                <div class="placeholder-img">T.B.</div>
-                <h3>[NAME PLACEHOLDER]</h3>
+                <img src="images/John-Osu.png" alt="John Osu" class="instructor-img">
+                <h3>JOHN OSU</h3>
                 <span class="instructor-role">INTERFACE LEAD</span>
                 <p class="small">Expert in high-fidelity prototyping and interaction design. Bridges the gap between static Figma files and React environments.</p>
+                
                  <div class="social-placeholders">
-                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
-                    <div class="social-icon-box" title="X Placeholder"></div>
+                    <a href="https://www.linkedin.com/in/john-stephen-osu-5a060b308/" target="_blank">
+                        <img src="images/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://x.com/JohnDayo2024?s=09" target="_blank">
+                        <img src="images/twitter.svg" alt="X">
+                    </a>
                 </div>
             </div>
 
             <div class="card instructor-card">
-                <div class="placeholder-img">A.O.</div>
-                <h3>[NAME PLACEHOLDER]</h3>
+                <img src="images/Augustine-Udie.png" alt="Augustine Udie" class="instructor-img">
+                <h3>AUGUSTINE UDIE</h3>
                 <span class="instructor-role">UX STRATEGY</span>
                 <p class="small">Focused on user testing methodologies and data-driven design decisions. Ensures structure precedes aesthetics.</p>
+                
                  <div class="social-placeholders">
-                    <div class="social-icon-box" title="LinkedIn Placeholder"></div>
-                    <div class="social-icon-box" title="WhatsApp Placeholder"></div>
+                    <a href="https://www.linkedin.com/in/augustine-udie/" target="_blank">
+                        <img src="images/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://x.com/Subsaharxn" target="_blank">
+                        <img src="images/twitter.svg" alt="X">
+                    </a>
                 </div>
             </div>
         </div>
@@ -194,10 +220,8 @@
             <div class="tech-badge">VARIABLES</div>
             <div class="tech-badge">COMPONENTS</div>
             <div class="tech-badge">NOTION</div>
-            <div class="tech-badge">MIRO</div>
-            <div class="tech-badge">MAZE</div>
-            <div class="tech-badge">USABILITY HUB</div>
-            <div class="tech-badge">LINEAR</div>
+            <div class="tech-badge">GEMINI</div>
+            
         </div>
 
         <div class="section-divider"></div>

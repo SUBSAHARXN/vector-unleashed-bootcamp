@@ -1,15 +1,14 @@
 :root {
     /* --- COLOR PALETTE --- */
     --bg-color: #F5F5F5;
-    --text-color: #3E403B;  /* Deep Black (Used for Borders & Main Button) */
-    --accent: #88D629;      /* Green (Used for Main Hover) */
+    --text-color: #3E403B;  /* Deep Black */
+    --accent: #88D629;      /* Green */
     
-    /* NEW COLORS ADDED */
-    --accent-secondary: #C29800; /* Gold (For "View Curriculum" Hover) */
-    --header-color: #3E403B;     /* Dark Grey for H1, H2, H3 */
-    --body-color: #676A62;       /* Medium Grey for Paragraphs */
-    --caption-color: #A4A7A0;    /* Light Grey for Captions */
-    --border-line-color: #53554E; /* Darker Grey for Dividers */
+    --accent-secondary: #C29800; /* Gold */
+    --header-color: #3E403B;     /* Dark Grey */
+    --body-color: #676A62;       /* Medium Grey */
+    --caption-color: #A4A7A0;    /* Light Grey */
+    --border-line-color: #53554E; /* Divider Grey */
 }
 
 body {
@@ -26,25 +25,33 @@ body {
     margin: 0 auto 40px auto;
 }
 
-/* THE PIXEL AESTHETIC (Borders stay deep black) */
+/* THE PIXEL AESTHETIC */
 .pixel-border, .card, .btn-pixel, .nav-cta, .phase-card, .instructor-card, .commit-card {
     border: 4px solid var(--text-color);
     background: white;
 }
 
-/* --- NAVIGATION (UPDATED FOR SPACE) --- */
+/* --- NAVIGATION (UPDATED FOR CENTERING & MOBILE) --- */
 nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* Removed 'space-between' to allow custom flex growing for centering */
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
     background: white;
-    padding: 16px 24px; 
+    padding: 16px 24px;
     margin-bottom: 40px;
-    gap: 16px; 
+}
+
+/* 1. Header Container (Logo + Toggle) */
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    flex-shrink: 0; /* Prevents logo from shrinking */
 }
 
 nav .logo {
@@ -58,10 +65,22 @@ nav .logo .nav-logo {
     padding: 0;
 }
 
+/* 2. Menu Container (Links + CTA) */
+/* UPDATED: This allows the menu to grow and center the links */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Occupies all remaining space */
+    justify-content: flex-end; /* Keeps CTA on the right */
+    gap: 16px;
+    margin-left: 20px;
+}
+
 .nav-links {
     display: flex;
-    gap: 8px; 
-    margin-top: 0;
+    gap: 8px;
+    /* UPDATED: This centers the links in the available space */
+    margin: 0 auto; 
 }
 
 .nav-links a {
@@ -70,7 +89,7 @@ nav .logo .nav-logo {
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
-    padding: 10px 12px; 
+    padding: 10px 12px;
     border: 2px solid transparent;
     transition: all 0.2s ease;
 }
@@ -78,7 +97,6 @@ nav .logo .nav-logo {
 .nav-links a:hover {
     border-color: var(--header-color);
     background-color: transparent;
-    text-decoration: none;
 }
 
 .nav-cta {
@@ -96,6 +114,27 @@ nav .logo .nav-logo {
 .nav-cta:hover {
     background: var(--accent);
     color: var(--text-color);
+}
+
+/* 3. Hamburger Icon (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+    border: 2px solid transparent;
+}
+
+.menu-toggle .bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    border: 2px solid var(--text-color);
 }
 
 .nav-title, nav .status { display: none; }
@@ -305,6 +344,15 @@ h1 .accent-dot, h2 .accent-dot {
     text-align: center;
 }
 
+.instructor-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 4px solid var(--text-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
 .placeholder-img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -328,28 +376,37 @@ h1 .accent-dot, h2 .accent-dot {
     display: block;
 }
 
+/* --- UPDATED SOCIAL ICONS --- */
 .social-placeholders {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 16px; 
     margin-top: 20px;
     padding-top: 20px;
     border-top: 2px solid var(--bg-color);
 }
 
-.social-icon-box {
-    width: 32px;
-    height: 32px;
-    background: var(--caption-color);
-    cursor: pointer;
-    transition: 0.2s;
+.social-placeholders a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-.social-icon-box:hover {
-    background: var(--accent);
+.social-placeholders img {
+    height: 24px; 
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.2s ease;
 }
 
-/* --- CURRICULUM SECTION (NEW) --- */
+.social-placeholders img:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* --- CURRICULUM SECTION --- */
 .curriculum-stack {
     display: flex;
     flex-direction: column;
@@ -456,7 +513,67 @@ h1 .accent-dot, h2 .accent-dot {
     margin-top: 0;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE HAMBURGER MENU */
+@media (max-width: 950px) {
+    
+    /* Change Nav to Column Layout */
+    nav.pixel-border.sticky-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 24px;
+        gap: 0;
+    }
+
+    .nav-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Show the Hamburger */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Hide the Menu by default */
+    .nav-menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+        gap: 20px;
+        border-top: 4px solid var(--text-color);
+        margin-top: 16px;
+        margin-left: 0; /* Reset margins for mobile */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 16px;
+        border-bottom: 2px solid var(--bg-color);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-cta {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* ACTIVATED STATE: Shows Menu */
+    nav.active .nav-menu {
+        display: flex;
+    }
+}
+
 @media (max-width: 850px) {
     .mission-grid, .philosophy-grid, .instructor-grid, .req-grid {
         grid-template-columns: 1fr;
@@ -466,15 +583,6 @@ h1 .accent-dot, h2 .accent-dot {
     .grid-2 { grid-template-columns: 1fr; }
     h1 { font-size: 2rem; }
     
-    nav.pixel-border.sticky-nav {
-        flex-direction: column;
-        padding: 24px;
-        gap: 16px;
-    }
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     .cta-group {
         flex-direction: column;
         align-items: flex-start;
@@ -488,7 +596,7 @@ h1 .accent-dot, h2 .accent-dot {
     }
     
     .curriculum-stack {
-        display: flex; /* Stack vertically on mobile */
+        display: flex;
     }
 }
 
