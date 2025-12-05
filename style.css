@@ -1,3 +1,8 @@
+/* --- CRITICAL RESET (FIXES MOBILE SPILLING) --- */
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* --- COLOR PALETTE --- */
     --bg-color: #F5F5F5;
@@ -9,6 +14,10 @@
     --body-color: #676A62;       /* Medium Grey */
     --caption-color: #A4A7A0;    /* Light Grey */
     --border-line-color: #53554E; /* Divider Grey */
+}
+
+html, body {
+    overflow-x: hidden; /* Fixes weird right alignment/scroll */
 }
 
 body {
@@ -495,18 +504,17 @@ h1 .accent-dot, h2 .accent-dot {
 
 .pixel-list li {
     display: flex;
-    align-items: center; /* Ensures text aligns with the center of the icon */
+    align-items: center; 
     gap: 12px;
     margin-bottom: 16px;
     font-size: 1rem;
 }
 
-/* NEW: Style for the SVG Checkbox */
 .check-icon {
     width: 24px;
     height: 24px;
     display: block;
-    flex-shrink: 0; /* Prevents the icon from squishing on small screens */
+    flex-shrink: 0; 
 }
 
 /* Commit Card */
@@ -581,12 +589,12 @@ h1 .accent-dot, h2 .accent-dot {
 
 /* --- STILL HAVE QUESTIONS BLOCK --- */
 .still-questions-block {
-    background: black; /* Deep black */
+    background: black; 
     color: white;
     padding: 60px 40px;
     text-align: center;
     margin-top: 60px;
-    border: 4px solid var(--text-color); /* Maintain pixel border */
+    border: 4px solid var(--text-color); 
 }
 
 .still-questions-block h2 {
@@ -606,7 +614,7 @@ h1 .accent-dot, h2 .accent-dot {
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px; /* Wide gap */
+    gap: 80px; 
     align-items: start;
 }
 
@@ -615,7 +623,7 @@ h1 .accent-dot, h2 .accent-dot {
     width: 48px;
     height: 48px;
     border: 4px solid var(--text-color);
-    background-color: #e0e0e0; /* Grey placeholder color */
+    background-color: #e0e0e0; 
     flex-shrink: 0;
 }
 
@@ -665,17 +673,18 @@ h1 .accent-dot, h2 .accent-dot {
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures width includes padding */
     outline: none;
     transition: 0.2s;
+    max-width: 100%; /* Safety check for mobile */
 }
 
 .input-pixel:focus {
-    border-color: var(--accent); /* Focus turns border Green */
+    border-color: var(--accent);
     background: #f9f9f9;
 }
 
-/* Success Message (Hidden by default) */
+/* Success Message */
 .form-status-message {
     display: none;
     text-align: center;
