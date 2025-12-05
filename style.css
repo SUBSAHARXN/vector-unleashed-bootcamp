@@ -1,4 +1,4 @@
-/* --- CRITICAL FIX: PREVENTS SPILLING --- */
+/* --- CRITICAL RESET (Fixes Mobile Spilling) --- */
 * {
     box-sizing: border-box;
 }
@@ -16,12 +16,7 @@
     --border-line-color: #53554E; /* Divider Grey */
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Stops "weird" right alignment/scroll */
-    position: relative;
-}
-
+/* UPDATED: Removed overflow-x hidden from HTML to fix sticky header */
 body {
     background-color: var(--bg-color);
     color: var(--body-color);
@@ -29,12 +24,13 @@ body {
     margin: 0;
     padding: 16px;
     line-height: 1.5;
+    width: 100%;
 }
 
 .container {
     max-width: 900px;
     margin: 0 auto 40px auto;
-    width: 100%; /* Ensures container never exceeds screen */
+    width: 100%;
 }
 
 /* THE PIXEL AESTHETIC */
@@ -48,7 +44,7 @@ nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: sticky;
+    position: sticky; /* This now works again */
     top: 0;
     z-index: 1000;
     background: white;
@@ -634,10 +630,10 @@ h1 .accent-dot, h2 .accent-dot {
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Overpass', sans-serif;
-    word-break: break-all; /* Prevents email from breaking layout on mobile */
+    word-break: break-all;
 }
 
-/* --- FORM STYLING (CRITICAL UPDATES) --- */
+/* --- FORM STYLING --- */
 .form-group {
     margin-bottom: 24px;
 }
@@ -654,14 +650,14 @@ h1 .accent-dot, h2 .accent-dot {
 .input-pixel {
     display: block;
     width: 100%;
-    max-width: 100%; /* Prevents spilling */
+    max-width: 100%;
     padding: 16px;
     border: 4px solid var(--text-color);
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
     
-    /* CRITICAL RESET FOR MOBILE */
+    /* MOBILE FIX */
     box-sizing: border-box; 
     margin: 0;
     border-radius: 0; 
@@ -762,7 +758,7 @@ h1 .accent-dot, h2 .accent-dot {
     .stats-card { order: -1; }
     
     .grid-2 { grid-template-columns: 1fr; }
-    h1 { font-size: 3rem; } /* Adjusted from 2rem to match large text desire but fit mobile better */
+    h1 { font-size: 3rem; }
     
     .cta-group {
         flex-direction: column;
