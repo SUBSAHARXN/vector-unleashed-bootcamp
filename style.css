@@ -26,7 +26,7 @@ body {
 }
 
 /* THE PIXEL AESTHETIC */
-.pixel-border, .card, .btn-pixel, .nav-cta, .phase-card, .instructor-card, .commit-card {
+.pixel-border, .card, .btn-pixel, .nav-cta, .phase-card, .instructor-card, .commit-card, .faq-item, .input-pixel {
     border: 4px solid var(--text-color);
     background: white;
 }
@@ -138,7 +138,7 @@ nav .logo .nav-logo {
 
 /* New Style for the Hamburger Image */
 .hamburger-icon {
-    width: 40px;
+    width: 32px;
     height: auto;
     display: block;
 }
@@ -495,21 +495,18 @@ h1 .accent-dot, h2 .accent-dot {
 
 .pixel-list li {
     display: flex;
-    align-items: center;
+    align-items: center; /* Ensures text aligns with the center of the icon */
     gap: 12px;
     margin-bottom: 16px;
     font-size: 1rem;
 }
 
-.check-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* NEW: Style for the SVG Checkbox */
+.check-icon {
     width: 24px;
     height: 24px;
-    border: 2px solid var(--text-color);
-    font-weight: bold;
-    color: var(--accent);
+    display: block;
+    flex-shrink: 0; /* Prevents the icon from squishing on small screens */
 }
 
 /* Commit Card */
@@ -523,16 +520,185 @@ h1 .accent-dot, h2 .accent-dot {
     margin-top: 0;
 }
 
-/* RESPONSIVE HAMBURGER MENU */
+/* --- FAQ ACCORDION --- */
+.faq-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    border: 4px solid var(--text-color);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    background: var(--bg-color);
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.faq-header h3 {
+    margin: 0;
+    font-size: 1.1rem; 
+    padding-right: 16px;
+}
+
+.faq-icon {
+    width: 24px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Open State Rotation */
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-body {
+    display: none; /* Hidden by default */
+    padding: 0 24px 24px 24px;
+    border-top: 4px solid var(--text-color); /* Separator line when open */
+    padding-top: 24px;
+}
+
+.faq-item.active .faq-body {
+    display: block; /* Show when active */
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- STILL HAVE QUESTIONS BLOCK --- */
+.still-questions-block {
+    background: black; /* Deep black */
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+    margin-top: 60px;
+    border: 4px solid var(--text-color); /* Maintain pixel border */
+}
+
+.still-questions-block h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.still-questions-block p {
+    color: #cccccc;
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px; /* Wide gap */
+    align-items: start;
+}
+
+/* Icons Placeholder (Square Box) */
+.icon-placeholder {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--text-color);
+    background-color: #e0e0e0; /* Grey placeholder color */
+    flex-shrink: 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.info-item .label {
+    display: block;
+    font-size: 0.85rem;
+    font-family: 'Space Mono', monospace;
+    color: var(--caption-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.info-link, .info-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--header-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Overpass', sans-serif;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.input-pixel {
+    width: 100%;
+    padding: 16px;
+    border: 4px solid var(--text-color);
+    font-family: 'Overpass', sans-serif;
+    font-size: 1rem;
+    background: white;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-pixel:focus {
+    border-color: var(--accent); /* Focus turns border Green */
+    background: #f9f9f9;
+}
+
+/* Success Message (Hidden by default) */
+.form-status-message {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: var(--text-color);
+    color: white;
+    border: 4px solid var(--text-color);
+}
+
+.form-status-message h3 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+/* RESPONSIVE HAMBURGER MENU & GENERAL */
 @media (max-width: 950px) {
     
-    /* Change Nav to Column Layout */
     nav.pixel-border.sticky-nav {
         flex-direction: column;
         align-items: flex-start;
         padding: 16px 24px;
         gap: 0;
-        /* Relative position required for Absolute Mobile Title */
         position: sticky; 
     }
 
@@ -540,21 +706,17 @@ h1 .accent-dot, h2 .accent-dot {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        /* Ensure header allows positioning */
         position: relative; 
     }
 
-    /* SHOW Mobile Title */
     .nav-mobile-title {
         display: block;
     }
 
-    /* Show the Hamburger */
     .menu-toggle {
-        display: block; /* DISPLAY BLOCK for image */
+        display: block; 
     }
 
-    /* Hide the Menu by default */
     .nav-menu {
         display: none; 
         flex-direction: column;
@@ -588,14 +750,13 @@ h1 .accent-dot, h2 .accent-dot {
         box-sizing: border-box;
     }
 
-    /* ACTIVATED STATE */
     nav.active .nav-menu {
         display: flex;
     }
 }
 
 @media (max-width: 850px) {
-    .mission-grid, .philosophy-grid, .instructor-grid, .req-grid {
+    .mission-grid, .philosophy-grid, .instructor-grid, .req-grid, .contact-grid {
         grid-template-columns: 1fr;
     }
     .stats-card { order: -1; }

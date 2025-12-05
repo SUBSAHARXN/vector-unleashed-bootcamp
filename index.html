@@ -29,8 +29,8 @@
                 <a href="#about" onclick="document.querySelector('nav').classList.remove('active')">ABOUT</a>
                 <a href="#curriculum" onclick="document.querySelector('nav').classList.remove('active')">CURRICULUM</a>
                 <a href="#tuition" onclick="document.querySelector('nav').classList.remove('active')">TUITION</a>
-                <a href="#">FAQS</a>
-            </div>
+                <a href="#faqs" onclick="document.querySelector('nav').classList.remove('active')">FAQS</a>
+                <a href="#contact" onclick="document.querySelector('nav').classList.remove('active')">CONTACT</a> </div>
 
             <a href="#tuition" class="nav-cta" onclick="document.querySelector('nav').classList.remove('active')">ENROLL NOW</a>
         </div>
@@ -232,12 +232,12 @@
                 <p class="subtitle">We don't care about your background. We care about your logic. Here is what you need to survive:</p>
                 
                 <ul class="pixel-list">
-                    <li><span class="check-box">✓</span> No prior design experience required</li>
-                    <li><span class="check-box">✓</span> Laptop with 8GB+ RAM (Mac/PC)</li>
-                    <li><span class="check-box">✓</span> Commitment to 15+ hours/week</li>
-                    <li><span class="check-box">✓</span> Stable Internet Connection</li>
-                    <li><span class="check-box">✓</span> English Proficiency</li>
-                    <li><span class="check-box">✓</span> <strong>Growth Mindset (Non-negotiable)</strong></li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> No prior design experience required</li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> Laptop with 8GB+ RAM (Mac/PC)</li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> Commitment to 15+ hours/week</li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> Stable Internet Connection</li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> English Proficiency</li>
+                    <li><img src="images/checkbox.svg" class="check-icon" alt="✓"> <strong>Growth Mindset (Non-negotiable)</strong></li>
                 </ul>
             </div>
 
@@ -245,6 +245,108 @@
                 <h3>READY TO COMMIT?</h3>
                 <p style="margin-bottom: 24px;">This is not a casual online course. It is 16 weeks of intense structural work. But if you put in the effort, you will come out job-ready.</p>
                 <a href="#tuition" class="btn-pixel-inverse" style="width: 100%; text-align: center; box-sizing: border-box;">START APPLICATION →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faqs" class="container">
+        <div class="section-divider"></div>
+        
+        <h2>SYSTEM LOGISTICS (FAQS)<span class="accent-dot">.</span></h2>
+        
+        <div class="faq-stack">
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>I WORK A 9-5. WILL THIS CLASH?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>No. The schedule is engineered for working professionals. Live classes run <strong>7:00 PM – 9:00 PM (WAT)</strong> on weekdays. If you miss a session, high-definition recordings are uploaded immediately. 60% of our cohort works full-time.</p></div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>DO I NEED A POWERFUL LAPTOP?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>No. Figma is a browser-based tool. If your computer can run Google Chrome with 5 tabs open, you can design. Mac or PC—it does not matter. We care about your logic, not your specs.</p></div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>DO I NEED TO KNOW HOW TO CODE?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>Zero coding required. "Logic-First" means we design with structure (Autolayout, Components, Variables) that <em>translates</em> to code, but you will not be writing lines of Javascript. We are Architects, not Builders.</p></div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>IS THE SOFTWARE FREE?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>Yes. We use the free tier of Figma for the entire bootcamp. You do not need to pay for any software subscriptions to complete this course. We keep overhead costs at zero.</p></div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>CAN I REALLY LEARN IN 16 WEEKS?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>You cannot learn <em>everything</em>, but you will learn <em>competence</em>. We cut out the fluff. No art history. No theory without practice. 16 weeks of intense, systems-based drilling is enough to make you job-ready.</p></div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-header"><h3>WHAT HAPPENS AFTER GRADUATION?</h3><img src="images/Chevron.svg" class="faq-icon" alt="Toggle"></div>
+                <div class="faq-body"><p>You do not just leave; you enter the ecosystem. You gain lifetime access to the Alumni Network, bonus workshops on Rive/Framer, and direct referrals to hiring partners when available.</p></div>
+            </div>
+        </div>
+
+        <div class="still-questions-block">
+            <h2>STILL HAVE QUESTIONS?</h2>
+            <p>We're here to help. Reach out and we'll get back to you within 24 hours.</p>
+            <a href="#contact" class="btn-pixel-inverse">CONTACT US</a>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="section-divider"></div>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>GET IN TOUCH<span class="accent-dot">.</span></h2>
+                
+                <div class="info-item">
+                    <div class="icon-placeholder"></div> 
+                    <div>
+                        <span class="label">EMAIL</span>
+                        <a href="mailto:admissions@subtleshoppers.com" class="info-link">ADMISSIONS@SUBTLESHOPPERS.COM</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-placeholder"></div>
+                    <div>
+                        <span class="label">LOCATION</span>
+                        <span class="info-text">REMOTE / LAGOS, NIGERIA</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-placeholder"></div>
+                    <div>
+                        <span class="label">RESPONSE TIME</span>
+                        <span class="info-text">WITHIN 24 HOURS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h2>SEND A MESSAGE<span class="accent-dot">.</span></h2>
+                
+                <form id="contact-form" action="https://formspree.io/f/xjknoedd" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">YOUR NAME *</label>
+                        <input type="text" name="name" id="name" class="input-pixel" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">EMAIL ADDRESS *</label>
+                        <input type="email" name="email" id="email" class="input-pixel" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">MESSAGE *</label>
+                        <textarea name="message" id="message" class="input-pixel" rows="5" placeholder="What would you like to know?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-pixel" style="width: 100%; border: 4px solid var(--text-color);">SEND MESSAGE</button>
+                </form>
+
+                <div id="form-status" class="form-status-message">
+                    <h3>MESSAGE SENT.</h3>
+                    <p>We have received your inquiry and will respond within 24 hours.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -299,6 +401,41 @@
             <a href="https://wa.me/2349056216980">WhatsApp</a> 
         </div>
     </footer>
+
+    <script>
+        var form = document.getElementById("contact-form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault(); // STOPS THE REDIRECT
+            var status = document.getElementById("form-status");
+            var data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // SUCCESS: Hide form, show success message
+                    form.style.display = "none";
+                    status.style.display = "block";
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                    })
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 
 </body>
 </html>
