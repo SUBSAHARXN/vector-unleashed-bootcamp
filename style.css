@@ -16,7 +16,12 @@
     --border-line-color: #53554E; /* Divider Grey */
 }
 
-/* UPDATED: Removed overflow-x hidden from HTML to fix sticky header */
+/* UPDATED: Fixes "Weird Alignment" without breaking Sticky Header */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; 
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--body-color);
@@ -44,7 +49,7 @@ nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: sticky; /* This now works again */
+    position: sticky; /* Works because overflow is handled on body/html correctly now */
     top: 0;
     z-index: 1000;
     background: white;
@@ -359,6 +364,16 @@ h1 .accent-dot, h2 .accent-dot {
     text-align: center;
 }
 
+/* Spacing Adjustments for Instructor Card */
+.instructor-card h3 {
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+
+.instructor-card p {
+    margin-bottom: 24px;
+}
+
 .instructor-img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -437,6 +452,18 @@ h1 .accent-dot, h2 .accent-dot {
     font-weight: bold;
     font-family: 'Space Mono', monospace;
     font-size: 0.85rem;
+}
+
+/* Spacing Adjustments for Phase Card */
+.phase-card h3 {
+    margin-bottom: -4px;
+    margin-top: 8px;
+}
+
+.phase-card p {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.6;
 }
 
 .duration {
@@ -633,9 +660,10 @@ h1 .accent-dot, h2 .accent-dot {
     word-break: break-all;
 }
 
-/* --- FORM STYLING --- */
+/* --- FORM STYLING (FIXED FOR MOBILE) --- */
 .form-group {
     margin-bottom: 24px;
+    width: 100%; /* Ensures wrapper is full width */
 }
 
 .form-group label {
@@ -650,14 +678,15 @@ h1 .accent-dot, h2 .accent-dot {
 .input-pixel {
     display: block;
     width: 100%;
-    max-width: 100%;
+    max-width: 100%; /* Prevents spilling out of container */
+    min-width: 0;    /* Fixes flex/grid item sizing issues */
     padding: 16px;
     border: 4px solid var(--text-color);
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
     
-    /* MOBILE FIX */
+    /* CRITICAL MOBILE RESET */
     box-sizing: border-box; 
     margin: 0;
     border-radius: 0; 
@@ -755,6 +784,13 @@ h1 .accent-dot, h2 .accent-dot {
     .mission-grid, .philosophy-grid, .instructor-grid, .req-grid, .contact-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Specific Fix for Contact Layout on Mobile */
+    .contact-form-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+    
     .stats-card { order: -1; }
     
     .grid-2 { grid-template-columns: 1fr; }
