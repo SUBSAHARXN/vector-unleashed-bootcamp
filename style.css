@@ -68,7 +68,7 @@ nav .logo .nav-logo {
 .nav-mobile-title {
     display: none; /* Hidden on Desktop */
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     letter-spacing: -1px;
     color: var(--header-color);
     text-transform: uppercase;
