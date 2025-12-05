@@ -1,4 +1,4 @@
-/* --- CRITICAL RESET (FIXES MOBILE SPILLING) --- */
+/* --- CRITICAL FIX: PREVENTS SPILLING --- */
 * {
     box-sizing: border-box;
 }
@@ -17,7 +17,9 @@
 }
 
 html, body {
-    overflow-x: hidden; /* Fixes weird right alignment/scroll */
+    width: 100%;
+    overflow-x: hidden; /* Stops "weird" right alignment/scroll */
+    position: relative;
 }
 
 body {
@@ -32,6 +34,7 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto 40px auto;
+    width: 100%; /* Ensures container never exceeds screen */
 }
 
 /* THE PIXEL AESTHETIC */
@@ -44,7 +47,7 @@ body {
 nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
-    align-items: center; /* Vertically align */
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -53,7 +56,6 @@ nav.pixel-border.sticky-nav {
     margin-bottom: 40px;
 }
 
-/* 1. Header Container (Logo + Mobile Title + Toggle) */
 .nav-header {
     display: flex;
     align-items: center;
@@ -73,9 +75,8 @@ nav .logo .nav-logo {
     padding: 0;
 }
 
-/* Mobile Center Text */
 .nav-mobile-title {
-    display: none; /* Hidden on Desktop */
+    display: none; 
     font-weight: 800;
     font-size: 1.0rem;
     letter-spacing: -1px;
@@ -87,12 +88,11 @@ nav .logo .nav-logo {
     white-space: nowrap;
 }
 
-/* 2. Menu Container (Links + CTA) */
 .nav-menu {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Fills space between Logo and End */
-    justify-content: flex-end; /* Pushes CTA to the end */
+    flex-grow: 1;
+    justify-content: flex-end;
     gap: 16px;
     margin-left: 20px;
 }
@@ -100,7 +100,6 @@ nav .logo .nav-logo {
 .nav-links {
     display: flex;
     gap: 8px;
-    /* CENTERS THE LINKS on Desktop */
     margin: 0 auto; 
 }
 
@@ -137,15 +136,13 @@ nav .logo .nav-logo {
     color: var(--text-color);
 }
 
-/* 3. Hamburger Icon (UPDATED FOR IMAGE) */
 .menu-toggle {
-    display: none; /* Hidden on Desktop */
+    display: none; 
     cursor: pointer;
     padding: 8px;
     border: 2px solid transparent;
 }
 
-/* New Style for the Hamburger Image */
 .hamburger-icon {
     width: 32px;
     height: auto;
@@ -158,12 +155,13 @@ nav .logo .nav-logo {
 
 .nav-title, nav .status { display: none; }
 
-/* --- TYPOGRAPHY UPDATES --- */
+/* --- TYPOGRAPHY --- */
 h1 {
     font-size: 72px;
     margin-bottom: 8px;
     letter-spacing: -2px;
     color: var(--header-color);
+    line-height: 1.1;
 }
 
 h2 {
@@ -198,6 +196,7 @@ h3 {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-pixel:hover {
@@ -215,6 +214,7 @@ h3 {
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
+    text-align: center;
 }
 
 .btn-pixel-inverse:hover {
@@ -372,20 +372,6 @@ h1 .accent-dot, h2 .accent-dot {
     display: block;
 }
 
-.placeholder-img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: var(--bg-color);
-    border: 4px solid var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--caption-color);
-    margin-bottom: 20px;
-}
-
 .instructor-role {
     color: var(--accent);
     font-weight: bold;
@@ -395,7 +381,7 @@ h1 .accent-dot, h2 .accent-dot {
     display: block;
 }
 
-/* --- UPDATED SOCIAL ICONS --- */
+/* SOCIAL ICONS */
 .social-placeholders {
     display: flex;
     justify-content: center;
@@ -565,20 +551,19 @@ h1 .accent-dot, h2 .accent-dot {
     transition: transform 0.3s ease;
 }
 
-/* Open State Rotation */
 .faq-item.active .faq-icon {
     transform: rotate(180deg);
 }
 
 .faq-body {
-    display: none; /* Hidden by default */
+    display: none; 
     padding: 0 24px 24px 24px;
-    border-top: 4px solid var(--text-color); /* Separator line when open */
+    border-top: 4px solid var(--text-color);
     padding-top: 24px;
 }
 
 .faq-item.active .faq-body {
-    display: block; /* Show when active */
+    display: block; 
     animation: fadeIn 0.3s ease;
 }
 
@@ -618,7 +603,6 @@ h1 .accent-dot, h2 .accent-dot {
     align-items: start;
 }
 
-/* Icons Placeholder (Square Box) */
 .icon-placeholder {
     width: 48px;
     height: 48px;
@@ -650,9 +634,10 @@ h1 .accent-dot, h2 .accent-dot {
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Overpass', sans-serif;
+    word-break: break-all; /* Prevents email from breaking layout on mobile */
 }
 
-/* Form Styling */
+/* --- FORM STYLING (CRITICAL UPDATES) --- */
 .form-group {
     margin-bottom: 24px;
 }
@@ -667,16 +652,23 @@ h1 .accent-dot, h2 .accent-dot {
 }
 
 .input-pixel {
+    display: block;
     width: 100%;
+    max-width: 100%; /* Prevents spilling */
     padding: 16px;
     border: 4px solid var(--text-color);
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
-    box-sizing: border-box; /* Ensures width includes padding */
+    
+    /* CRITICAL RESET FOR MOBILE */
+    box-sizing: border-box; 
+    margin: 0;
+    border-radius: 0; 
+    -webkit-appearance: none;
+    
     outline: none;
     transition: 0.2s;
-    max-width: 100%; /* Safety check for mobile */
 }
 
 .input-pixel:focus {
@@ -684,7 +676,6 @@ h1 .accent-dot, h2 .accent-dot {
     background: #f9f9f9;
 }
 
-/* Success Message */
 .form-status-message {
     display: none;
     text-align: center;
@@ -700,7 +691,7 @@ h1 .accent-dot, h2 .accent-dot {
     margin-bottom: 16px;
 }
 
-/* RESPONSIVE HAMBURGER MENU & GENERAL */
+/* RESPONSIVE */
 @media (max-width: 950px) {
     
     nav.pixel-border.sticky-nav {
@@ -771,7 +762,7 @@ h1 .accent-dot, h2 .accent-dot {
     .stats-card { order: -1; }
     
     .grid-2 { grid-template-columns: 1fr; }
-    h1 { font-size: 2rem; }
+    h1 { font-size: 3rem; } /* Adjusted from 2rem to match large text desire but fit mobile better */
     
     .cta-group {
         flex-direction: column;
