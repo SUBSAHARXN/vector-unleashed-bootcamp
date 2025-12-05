@@ -64,7 +64,7 @@ nav .logo .nav-logo {
     padding: 0;
 }
 
-/* NEW: Mobile Center Text */
+/* Mobile Center Text */
 .nav-mobile-title {
     display: none; /* Hidden on Desktop */
     font-weight: 800;
@@ -72,7 +72,6 @@ nav .logo .nav-logo {
     letter-spacing: -1px;
     color: var(--header-color);
     text-transform: uppercase;
-    /* Absolute Positioning for perfect center */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -129,21 +128,19 @@ nav .logo .nav-logo {
     color: var(--text-color);
 }
 
-/* 3. Hamburger Icon (Hidden on Desktop) */
+/* 3. Hamburger Icon (UPDATED FOR IMAGE) */
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
+    display: none; /* Hidden on Desktop */
     cursor: pointer;
     padding: 8px;
     border: 2px solid transparent;
 }
 
-.menu-toggle .bar {
-    width: 24px;
-    height: 3px;
-    background-color: var(--text-color);
-    transition: 0.3s;
+/* New Style for the Hamburger Image */
+.hamburger-icon {
+    width: 32px;
+    height: auto;
+    display: block;
 }
 
 .menu-toggle:hover {
@@ -554,7 +551,7 @@ h1 .accent-dot, h2 .accent-dot {
 
     /* Show the Hamburger */
     .menu-toggle {
-        display: flex;
+        display: block; /* DISPLAY BLOCK for image */
     }
 
     /* Hide the Menu by default */
