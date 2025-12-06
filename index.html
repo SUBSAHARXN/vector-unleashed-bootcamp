@@ -263,7 +263,9 @@
                 <h2>GET IN TOUCH<span class="accent-dot">.</span></h2>
                 
                 <div class="info-item">
-                    <div class="icon-placeholder"></div>
+                    <div class="icon-box">
+                        <img src="images/Email.svg" alt="Email" style="width: 40px; height: auto;">
+                    </div> 
                     <div>
                         <span class="label">EMAIL</span>
                         <a href="mailto:admissions@subtleshoppers.com" class="info-link">ADMISSIONS@SUBTLESHOPPERS.COM</a>
@@ -271,7 +273,9 @@
                 </div>
 
                 <div class="info-item">
-                    <div class="icon-placeholder"></div>
+                    <div class="icon-box">
+                        <img src="images/Location.svg" alt="Location" style="width: 40px; height: auto;">
+                    </div>
                     <div>
                         <span class="label">LOCATION</span>
                         <span class="info-text">REMOTE / LAGOS, NIGERIA</span>
@@ -279,7 +283,9 @@
                 </div>
 
                 <div class="info-item">
-                    <div class="icon-placeholder"></div>
+                    <div class="icon-box">
+                        <img src="images/Time.svg" alt="Time" style="width: 40px; height: auto;">
+                    </div>
                     <div>
                         <span class="label">RESPONSE TIME</span>
                         <span class="info-text">WITHIN 24 HOURS</span>
@@ -291,7 +297,6 @@
                 <h2>SEND A MESSAGE<span class="accent-dot">.</span></h2>
                 
                 <form id="contact-form" action="https://formspree.io/f/xjknoedd" method="POST">
-                    
                     <div class="form-group">
                         <label for="name">YOUR NAME *</label>
                         <input type="text" name="name" id="name" class="input-pixel" placeholder="John Doe" required>
@@ -361,19 +366,45 @@
     </section>
 
     <footer>
-        <p>© 2025 Vector Unleashed. An education initiative powered by Subtle Shoppers Ltd. All Rights Reserved.</p>
-        <div class="socials">
-            <a href="https://www.linkedin.com/company/vector-unleashed-academy/about">LinkedIn</a> | 
-            <a href="mailto:admissions@subtleshoppers.com">Admissions</a> |
-            <a href="https://wa.me/2349056216980">WhatsApp</a> 
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="images/logo.svg" alt="Vector Unleashed Logo" class="footer-logo">
+                <p class="footer-tagline">
+                    Stop guessing. Just systems.<br>
+                    Become job-ready in 16 weeks.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-header">NAVIGATION</h4>
+                <div class="footer-nav-stack">
+                    <a href="#">HOME</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#curriculum">PROGRAM</a> 
+                    <a href="#tuition">PAYMENT</a>
+                    <a href="#faqs">FAQ</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-header">FOLLOW US</h4>
+                <div class="footer-nav-stack">
+                    <a href="https://www.linkedin.com/company/vector-unleashed-academy/about" target="_blank">LINKEDIN →</a>
+                    <a href="https://wa.me/2349056216980" target="_blank">WHATSAPP →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 VECTOR UNLEASHED. ALL RIGHTS RESERVED. NO FLUFF. JUST LOGIC.</p>
         </div>
     </footer>
 
     <script>
         var form = document.getElementById("contact-form");
-        
         async function handleSubmit(event) {
-            event.preventDefault(); // STOPS THE REDIRECT
+            event.preventDefault(); 
             var status = document.getElementById("form-status");
             var data = new FormData(event.target);
             
@@ -385,7 +416,6 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // SUCCESS: Hide form, show success message
                     form.style.display = "none";
                     status.style.display = "block";
                 } else {
