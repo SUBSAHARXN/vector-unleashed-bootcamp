@@ -47,7 +47,6 @@ body {
 
 /* --- NAVIGATION --- */
 nav.pixel-border.sticky-nav {
-nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,18 +58,9 @@ nav.pixel-border.sticky-nav {
     z-index: 1000;
     
     background: white;
+    /* UNIFIED PADDING: Matches Body Padding */
     padding: 16px 16px; 
     margin-bottom: 40px;
-
-    /* --- THE FIX --- */
-    margin-left: -16px;        /* Pulls to the left edge */
-    margin-right: -16px;       /* Pulls to the right edge */
-    width: calc(100% + 32px);  /* Calculates width to fill both gaps (16px + 16px) */
-    
-    /* Optional: If you want to remove the side borders so it looks like an infinite line */
-    border-left: none;
-    border-right: none;
-    border-top: none;    
 }
 
 .nav-header {
