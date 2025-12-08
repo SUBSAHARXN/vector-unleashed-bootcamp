@@ -16,7 +16,7 @@
     --border-line-color: #53554E; /* Divider Grey */
 }
 
-/* UPDATED: Removed overflow-x hidden from HTML to restore Sticky Nav */
+/* UPDATED: Removed 'overflow-x: hidden' to restore Sticky Nav */
 html, body {
     max-width: 100%;
     margin: 0;
@@ -27,10 +27,10 @@ body {
     background-color: var(--bg-color);
     color: var(--body-color);
     font-family: 'Overpass', sans-serif;
-    padding: 16px;
+    /* UNIFIED PADDING: Matches Nav Padding now */
+    padding: 16px; 
     line-height: 1.5;
     width: 100%;
-    /* overflow-x: hidden; <-- REMOVED THIS LINE TO FIX STICKY NAV */
 }
 
 .container {
@@ -45,7 +45,8 @@ body {
     background: white;
 }
 
-/* --- NAVIGATION (Sticky Restored) --- */
+/* --- NAVIGATION --- */
+nav.pixel-border.sticky-nav {
 nav.pixel-border.sticky-nav {
     display: flex;
     flex-direction: row;
@@ -58,8 +59,18 @@ nav.pixel-border.sticky-nav {
     z-index: 1000;
     
     background: white;
-    padding: 16px 24px;
+    padding: 16px 16px; 
     margin-bottom: 40px;
+
+    /* --- THE FIX --- */
+    margin-left: -16px;        /* Pulls to the left edge */
+    margin-right: -16px;       /* Pulls to the right edge */
+    width: calc(100% + 32px);  /* Calculates width to fill both gaps (16px + 16px) */
+    
+    /* Optional: If you want to remove the side borders so it looks like an infinite line */
+    border-left: none;
+    border-right: none;
+    border-top: none;    
 }
 
 .nav-header {
@@ -299,24 +310,32 @@ footer {
     text-align: left;
 }
 
-footer .container.footer-grid {
+/* Override container margin inside footer to fix spacing */
+footer .container {
     margin-bottom: 0;
+    /* Added Padding to fix "Inconsistent and Ugly" edge touching */
+    padding: 0 16px; 
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr; /* Brand wider on Desktop */
+    grid-template-columns: 1.5fr 1fr 1fr; /* Brand wider than links */
     gap: 60px;
     padding-bottom: 60px;
     border-bottom: 2px solid #53554E; 
     margin-bottom: 32px;
 }
 
-.footer-logo {
-    height: 40px;
-    width: auto;
-    margin-bottom: 24px;
-    /* Original Color retained */
+/* Brand Text Style */
+.footer-brand-text {
+    font-family: 'Overpass', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1;
 }
 
 .footer-tagline {
@@ -365,6 +384,8 @@ footer .container.footer-grid {
 
 .footer-bottom {
     text-align: center;
+    /* Increased gap between margin line and text */
+    padding-top: 48px; 
 }
 
 .footer-bottom p {
@@ -769,14 +790,11 @@ h1 .accent-dot, h2 .accent-dot {
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
-    
-    /* MOBILE RESET */
     box-sizing: border-box; 
     margin: 0;
     border-radius: 0; 
     -webkit-appearance: none;
     appearance: none;
-    
     outline: none;
     transition: 0.2s;
 }
@@ -807,7 +825,7 @@ h1 .accent-dot, h2 .accent-dot {
     nav.pixel-border.sticky-nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 16px 24px;
+        padding: 16px 16px; /* Matches body padding */
         gap: 0;
         position: sticky; 
     }
@@ -906,8 +924,6 @@ h1 .accent-dot, h2 .accent-dot {
         grid-column: 1 / -1; 
         margin-bottom: 20px;
     }
-    
-    /* Nav and Follow Us will naturally fall into Row 2 (Col 1 & Col 2) */
 }
 
 @media (min-width: 850px) {
