@@ -315,8 +315,9 @@
         </div>
     </section>
 
-    <footer>
+  <footer>
         <div class="container footer-grid">
+            
             <div class="footer-col brand-col">
                 <h2 class="footer-brand-text">VECTOR UNLEASHED<span class="accent-dot">.</span></h2>
                 <p class="footer-tagline">
@@ -330,7 +331,7 @@
                 <div class="footer-nav-stack">
                     <a href="#">HOME</a>
                     <a href="#about">ABOUT</a>
-                    <a href="#curriculum">PROGRAM</a> 
+                    <a href="#curriculum">PROGRAM</a>
                     <a href="#tuition">PAYMENT</a>
                     <a href="#faqs">FAQ</a>
                     <a href="#contact">CONTACT</a>
@@ -350,38 +351,3 @@
             <p>© 2025 VECTOR UNLEASHED. ALL RIGHTS RESERVED. NO FLUFF. JUST LOGIC.</p>
         </div>
     </footer>
-
-    <script>
-        var form = document.getElementById("contact-form");
-        async function handleSubmit(event) {
-            event.preventDefault(); 
-            var status = document.getElementById("form-status");
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = "none";
-                    status.style.display = "block";
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert("Oops! There was a problem submitting your form");
-                        }
-                    })
-                }
-            }).catch(error => {
-                alert("Oops! There was a problem submitting your form");
-            });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
-
-</body>
-</html>
