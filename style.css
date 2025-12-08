@@ -324,7 +324,7 @@ footer .container {
 
     /* --- THE FIX: ADDED !important TO FORCE BROWSER TO LISTEN --- */
     padding-bottom: 80px !important;  /* Huge gap ABOVE line */
-    margin-bottom: 40px !important;    /* Huge gap BELOW line */
+    margin-bottom: 8px !important;    /* Huge gap BELOW line */
 }
 
 .footer-brand-text {
@@ -384,7 +384,7 @@ footer .container {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 48px; 
+    padding-top: 32px; 
     
     /* Footer Text Padding */
     padding-left: 16px;
@@ -394,7 +394,7 @@ footer .container {
 .footer-bottom p {
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
-    color: #53554E; 
+    color: var(--caption-color); 
     text-transform: uppercase;
     margin: 0;
 }
@@ -491,7 +491,7 @@ h1 .accent-dot, h2 .accent-dot {
 .social-placeholders {
     display: flex;
     justify-content: center;
-    gap: 16px; 
+    gap: 32px; 
     margin-top: 20px;
     padding-top: 20px;
     border-top: 2px solid var(--bg-color);
@@ -504,7 +504,7 @@ h1 .accent-dot, h2 .accent-dot {
 }
 
 .social-placeholders img {
-    height: 24px; 
+    height: 32px; 
     width: auto;
     filter: grayscale(100%);
     opacity: 0.6;
