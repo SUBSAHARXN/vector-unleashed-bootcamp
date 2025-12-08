@@ -16,7 +16,7 @@
     --border-line-color: #53554E; /* Divider Grey */
 }
 
-/* UPDATED: Removed 'overflow-x: hidden' to restore Sticky Nav */
+/* UPDATED: Sticky Nav Restored (overflow-x removed) */
 html, body {
     max-width: 100%;
     margin: 0;
@@ -27,8 +27,7 @@ body {
     background-color: var(--bg-color);
     color: var(--body-color);
     font-family: 'Overpass', sans-serif;
-    /* UNIFIED PADDING: Matches Nav Padding now */
-    padding: 16px; 
+    padding: 16px; /* UNIFIED PADDING FOR ALIGNMENT */
     line-height: 1.5;
     width: 100%;
 }
@@ -58,8 +57,8 @@ nav.pixel-border.sticky-nav {
     z-index: 1000;
     
     background: white;
-    /* UNIFIED PADDING: Matches Body Padding */
-    padding: 16px 16px; 
+    /* UNIFIED PADDING: Matches body padding to fix alignment inconsistency */
+    padding: 16px; 
     margin-bottom: 40px;
 }
 
@@ -290,9 +289,9 @@ h3 {
 
 .link:hover { text-decoration: underline; }
 
-/* --- NEW FOOTER STYLES --- */
+/* --- FOOTER STYLES --- */
 footer {
-    background-color: var(--text-color); /* Deep Black Background */
+    background-color: var(--text-color);
     color: white;
     padding: 80px 0 40px 0;
     margin-top: 80px;
@@ -300,23 +299,22 @@ footer {
     text-align: left;
 }
 
-/* Override container margin inside footer to fix spacing */
-footer .container {
+/* Added Padding to left/right of footer container */
+footer .container.footer-grid {
     margin-bottom: 0;
-    /* Added Padding to fix "Inconsistent and Ugly" edge touching */
     padding: 0 16px; 
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr; /* Brand wider than links */
+    grid-template-columns: 1.5fr 1fr 1fr; 
     gap: 60px;
     padding-bottom: 60px;
     border-bottom: 2px solid #53554E; 
     margin-bottom: 32px;
 }
 
-/* Brand Text Style */
+/* TEXT LOGO STYLE */
 .footer-brand-text {
     font-family: 'Overpass', sans-serif;
     font-size: 2rem;
@@ -346,7 +344,7 @@ footer .container {
     margin-top: 0;
     margin-bottom: 24px;
     display: inline-block;
-    border-bottom: 2px solid var(--accent); /* Green Underline */
+    border-bottom: 2px solid var(--accent); 
     padding-bottom: 4px;
 }
 
@@ -374,8 +372,8 @@ footer .container {
 
 .footer-bottom {
     text-align: center;
-    /* Increased gap between margin line and text */
-    padding-top: 48px; 
+    /* Increased Gap before copyright text */
+    padding-top: 60px; 
 }
 
 .footer-bottom p {
@@ -774,12 +772,14 @@ h1 .accent-dot, h2 .accent-dot {
 .input-pixel {
     display: block;
     width: 100%;
-    max-width: 100%;
+    /* Fixes input spilling on mobile */
+    min-width: 0; 
     padding: 16px;
     border: 4px solid var(--text-color);
     font-family: 'Overpass', sans-serif;
     font-size: 1rem;
     background: white;
+    
     box-sizing: border-box; 
     margin: 0;
     border-radius: 0; 
@@ -815,7 +815,7 @@ h1 .accent-dot, h2 .accent-dot {
     nav.pixel-border.sticky-nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 16px 16px; /* Matches body padding */
+        padding: 16px; /* Matched to body */
         gap: 0;
         position: sticky; 
     }
@@ -877,6 +877,7 @@ h1 .accent-dot, h2 .accent-dot {
     .mission-grid, .philosophy-grid, .instructor-grid, .req-grid, .contact-grid {
         grid-template-columns: 1fr;
     }
+    
     .stats-card { order: -1; }
     
     .grid-2 { grid-template-columns: 1fr; }
@@ -903,16 +904,15 @@ h1 .accent-dot, h2 .accent-dot {
         display: flex;
     }
 
-    /* --- FOOTER RESPONSIVE: Side-by-Side Nav & Socials --- */
+    /* FOOTER RESPONSIVE: Brand top, Nav & Follow side-by-side */
     .footer-grid {
         grid-template-columns: 1fr 1fr; /* Two columns */
-        gap: 40px 20px; /* Vertical Gap 40px, Horizontal Gap 20px */
+        gap: 40px 20px; 
     }
 
-    /* Make Brand Column take up full width (Row 1) */
-    .footer-col:first-child {
+    /* Brand takes full width (Row 1) */
+    .brand-col {
         grid-column: 1 / -1; 
-        margin-bottom: 20px;
     }
 }
 
