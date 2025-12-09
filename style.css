@@ -241,7 +241,7 @@ h3 {
 }
 
 .card.highlight {
-    background: var(--bg-color);
+    background: #ffffff;
     color: var(--text-color);
 }
 
@@ -342,7 +342,7 @@ footer .container {
     font-family: 'Space Mono', monospace;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #A4A7A0; 
+    color: #E1E2DF;
     max-width: 300px;
     margin: 0;
 }
@@ -394,7 +394,7 @@ footer .container {
 .footer-bottom p {
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
-    color: var(--caption-color); 
+    color: #E1E2DF;
     text-transform: uppercase;
     margin: 0;
 }
@@ -747,16 +747,22 @@ h1 .accent-dot, h2 .accent-dot {
     text-transform: uppercase;
 }
 
+/* UPDATE THIS BLOCK IN YOUR CSS */
 .info-link, .info-text {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;  /* CHANGED: Reduced from 1.2rem to 1rem to fit mobile */
     color: var(--header-color);
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Overpass', sans-serif;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    word-break: break-all; 
+    
+    /* --- THE FIX --- */
+    word-break: normal;       /* Ensures it doesn't snap characters off */
+    overflow-wrap: anywhere;  /* Allows wrapping only if absolutely necessary */
+    line-height: 1.4;
+    /* --- FIX END --- */
+    
+    display: block;
 }
 
 .form-group {
@@ -924,5 +930,28 @@ h1 .accent-dot, h2 .accent-dot {
     .curriculum-stack {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+}
+/* --- FOOTER ADDRESS (DESKTOP & MOBILE) --- */
+.footer-address {
+    display: block; /* Ensures it is visible on ALL screens */
+    font-family: 'Space Mono', monospace; /* Technical font */
+    font-size: 0.85rem;
+    color: var(--caption-color);
+    font-style: normal; /* Removes default italics */
+    line-height: 1.6;
+
+    margin-top: 32px; /* Spacing from the tagline */
+    padding-left: 16px; /* Space for the border */
+    border-left: 2px solid var(--accent); 
+    /* Green technical line */
+}
+
+/* Optional: Slight tweak for Mobile to save space */
+@media (max-width: 850px) {
+    .footer-address {
+        font-size: 0.8rem; 
+        margin-top: 24px;
+        margin-bottom: 24px;
     }
 }
