@@ -456,9 +456,14 @@ h1 .accent-dot, h2 .accent-dot {
     gap: 24px;
 }
 
+/* --- UPDATED INSTRUCTOR CARD (Flexbox Fix) --- */
 .instructor-card {
     padding: 24px;
     text-align: center;
+    /* FLEXBOX MAGIC: Forces equal height & pushing content */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
 }
 
 .instructor-card h3 {
@@ -468,6 +473,8 @@ h1 .accent-dot, h2 .accent-dot {
 
 .instructor-card p {
     margin-bottom: 24px;
+    /* Optional: prevents text from stretching the flex item oddly */
+    flex-grow: 0; 
 }
 
 .instructor-img {
@@ -488,33 +495,51 @@ h1 .accent-dot, h2 .accent-dot {
     display: block;
 }
 
+/* --- UPDATED SOCIAL ICONS (Pinned to Bottom) --- */
 .social-placeholders {
     display: flex;
     justify-content: center;
-    gap: 32px; 
-    margin-top: 20px;
+    align-items: center;
+    gap: 16px;
     padding-top: 20px;
     border-top: 2px solid var(--bg-color);
+    
+    /* THE CRITICAL FIX: Pushes icons to the bottom of the card */
+    margin-top: auto; 
 }
 
 .social-placeholders a {
     text-decoration: none;
     display: flex;
     align-items: center;
-}
-
-.social-placeholders img {
-    height: 32px; 
-    width: auto;
-    filter: grayscale(100%);
-    opacity: 0.6;
+    justify-content: center;
+    
+    /* THE FIX: Enforce fixed square dimensions */
+    width: 48px; 
+    height: 48px;
     transition: all 0.2s ease;
 }
 
-.social-placeholders img:hover {
+.social-placeholders img {
+    height: 28px; /* Slightly smaller to breathe inside the 48px box */
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    display: block; /* Removes invisible inline spacing */
+    transition: all 0.2s ease;
+}
+
+/* Interaction State */
+.social-placeholders a:hover img {
     filter: none;
     opacity: 1;
     transform: scale(1.1);
+}
+
+/* Optional: Add a subtle hover box to match the brutalist style */
+.social-placeholders a:hover {
+    background-color: #F5F5F5; 
+    /* border-color: var(--bg-color); */
 }
 
 .curriculum-stack {
