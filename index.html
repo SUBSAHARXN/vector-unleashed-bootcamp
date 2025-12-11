@@ -50,6 +50,27 @@
         <h1>STOP GUESSING.<br>START DESIGNING.</h1>
         <p class="subtitle">Design isn't magic. It's logic. Learn to build product systems that actually work.</p>
         
+        <div class="countdown-container">
+            <div class="countdown-label">VECTOR UNLEASHED BEGINS IN:</div>
+            <div id="countdown" class="timer-grid">
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span class="label">DAYS</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span class="label">HRS</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span class="label">MIN</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span class="label">SEC</span>
+                </div>
+            </div>
+        </div>
         <div class="cta-group">
             <a href="#tuition" class="btn-pixel">SECURE MY SEAT</a>
             <a href="#curriculum" class="btn-pixel-inverse">VIEW CURRICULUM</a>
@@ -419,32 +440,74 @@ Reserved.</p>
         // 3. Syllabus Download Logic (UX + Telemetry)
         const downloadBtn = document.getElementById('download-syllabus');
         
-        downloadBtn.addEventListener('click', function() {
-            // A. Store original text to reset later
-            const originalText = downloadBtn.innerHTML;
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function() {
+                // A. Store original text to reset later
+                const originalText = downloadBtn.innerHTML;
 
-            // B. Visual Feedback (Immediate)
-            downloadBtn.innerText = "DOWNLOADING..."; // Industrial Feedback
-            downloadBtn.classList.add('downloading'); // Lock the button
+                // B. Visual Feedback (Immediate)
+                downloadBtn.innerText = "DOWNLOADING..."; // Industrial Feedback
+                downloadBtn.classList.add('downloading'); // Lock the button
 
-            // C. Fire Google Analytics Data
-            gtag('event', 'file_download', {
-                'file_name': 'Vector-Unleashed-Bootcamp-2026.pdf',
-                'file_extension': 'pdf',
-                'link_text': 'Download Syllabus [PDF]'
+                // C. Fire Google Analytics Data
+                gtag('event', 'file_download', {
+                    'file_name': 'Vector-Unleashed-Bootcamp-2026.pdf',
+                    'file_extension': 'pdf',
+                    'link_text': 'Download Syllabus [PDF]'
+                });
+
+                // D. State 2: Confirmation (After 3 seconds)
+                setTimeout(() => {
+                    downloadBtn.innerText = "✓ CHECK YOUR DOWNLOADS";
+                }, 5000);
+
+                // E. State 3: Reset (After 6 seconds)
+                setTimeout(() => {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.classList.remove('downloading');
+                }, 9000);
             });
+        }
 
-            // D. State 2: Confirmation (After 3 seconds)
-            setTimeout(() => {
-                downloadBtn.innerText = "✓ CHECK YOUR DOWNLOADS";
-            }, 5000);
+        // 4. SYSTEM COUNTDOWN LOGIC
+        // Set the date we're counting down to
+        const countDownDate = new Date("Jan 5, 2026 00:00:00").getTime();
 
-            // E. State 3: Reset (After 6 seconds)
-            setTimeout(() => {
-                downloadBtn.innerHTML = originalText;
-                downloadBtn.classList.remove('downloading');
-            }, 6000);
-        });
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+
+            if (daysEl) daysEl.innerHTML = days.toString().padStart(2, '0');
+            if (hoursEl) hoursEl.innerHTML = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.innerHTML = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.innerHTML = seconds.toString().padStart(2, '0');
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                const timerGrid = document.querySelector(".timer-grid");
+                if (timerGrid) {
+                    timerGrid.innerHTML = "<div class='time-block' style='grid-column: span 4; background: var(--accent); color: black;'>SYSTEM LAUNCHED</div>";
+                }
+            }
+        }, 1000);
     </script>
     </body>
 </html>

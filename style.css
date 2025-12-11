@@ -989,3 +989,70 @@ h1 .accent-dot, h2 .accent-dot {
     pointer-events: none;                           /* PHYSICALLY BLOCK CLICKS */
     border-color: var(--text-color);
 }
+
+/* --- SYSTEM COUNTDOWN WIDGET --- */
+.countdown-container {
+    margin-bottom: 32px;
+    max-width: 600px; /* Keeps it contained */
+}
+
+.countdown-label {
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    color: var(--header-color);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Equal Columns */
+    gap: 12px;
+}
+
+.time-block {
+    border: 4px solid #E2E1DF;
+    background: #E2E1DF; /* Black Background */
+    color: #7A6000;          /* Green Text */
+    padding: 12px 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-block span:first-child {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.time-block .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #6A6862; /* White labels for contrast */
+    margin-top: 4px;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 600px) {
+    .timer-grid {
+        gap: 8px;
+    }
+    
+    .time-block {
+        padding: 8px 2px;
+        border-width: 3px; /* Slightly thinner on mobile */
+    }
+
+    .time-block span:first-child {
+        font-size: 1.5rem; /* Smaller numbers on mobile */
+    }
+
+    .time-block .label {
+        font-size: 0.6rem;
+    }
+}
