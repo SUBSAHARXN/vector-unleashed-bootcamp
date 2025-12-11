@@ -398,7 +398,7 @@ Reserved.</p>
     </footer>
 
     <script>
-        // Track African Payment Click
+        // 1. Payment Tracking - African Cohort
         document.getElementById('pay-ngn').addEventListener('click', function() {
             gtag('event', 'begin_checkout', {
                 'currency': 'NGN',
@@ -407,7 +407,7 @@ Reserved.</p>
             });
         });
 
-        // Track International Payment Click
+        // 2. Payment Tracking - International Cohort
         document.getElementById('pay-usd').addEventListener('click', function() {
             gtag('event', 'begin_checkout', {
                 'currency': 'USD',
@@ -416,13 +416,34 @@ Reserved.</p>
             });
         });
 
-        // Track Syllabus Download (NEW)
-        document.getElementById('download-syllabus').addEventListener('click', function() {
+        // 3. Syllabus Download Logic (UX + Telemetry)
+        const downloadBtn = document.getElementById('download-syllabus');
+        
+        downloadBtn.addEventListener('click', function() {
+            // A. Store original text to reset later
+            const originalText = downloadBtn.innerHTML;
+
+            // B. Visual Feedback (Immediate)
+            downloadBtn.innerText = "DOWNLOADING..."; // Industrial Feedback
+            downloadBtn.classList.add('downloading'); // Lock the button
+
+            // C. Fire Google Analytics Data
             gtag('event', 'file_download', {
                 'file_name': 'Vector-Unleashed-Bootcamp-2026.pdf',
                 'file_extension': 'pdf',
                 'link_text': 'Download Syllabus [PDF]'
             });
+
+            // D. State 2: Confirmation (After 3 seconds)
+            setTimeout(() => {
+                downloadBtn.innerText = "✓ CHECK YOUR DOWNLOADS";
+            }, 3000);
+
+            // E. State 3: Reset (After 6 seconds)
+            setTimeout(() => {
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.classList.remove('downloading');
+            }, 6000);
         });
     </script>
     </body>

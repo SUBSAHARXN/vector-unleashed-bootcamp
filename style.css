@@ -980,3 +980,12 @@ h1 .accent-dot, h2 .accent-dot {
         margin-bottom: 24px;
     }
 }
+
+/* --- DOWNLOAD STATE LOGIC --- */
+.btn-pixel-inverse.downloading {
+    background-color: var(--text-color) !important; /* Turn Black */
+    color: white !important;                        /* Turn White */
+    cursor: wait;                                   /* Show Watch/Hourglass */
+    pointer-events: none;                           /* PHYSICALLY BLOCK CLICKS */
+    border-color: var(--text-color);
+}
