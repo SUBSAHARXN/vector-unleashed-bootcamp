@@ -160,7 +160,7 @@
                 <h2>THE SYLLABUS<span class="accent-dot">.</span></h2>
                 <p class="subtitle">16 Weeks. From structural logic to shipped product..</p>
             </div>
-            <a href="Vector-Unleashed-Bootcamp-2026.pdf" download class="btn-pixel-inverse" style="font-size: 12px; padding: 10px 20px;">
+            <a id="download-syllabus" href="Vector-Unleashed-Bootcamp-2026.pdf" download class="btn-pixel-inverse" style="font-size: 12px; padding: 10px 20px;">
                 ↓ DOWNLOAD SYLLABUS [PDF]
             </a>
         </div>
@@ -319,7 +319,7 @@
                 <p class="price">₦80,000</p>
                 <p class="small">Subsidized rate for Nigeria, Ghana, Kenya.</p>
                 
-                <a href="https://flutterwave.com/pay/vectorunleashedbootcamp" class="btn-pixel-inverse">PAY NOW</a>
+                <a id="pay-ngn" href="https://flutterwave.com/pay/vectorunleashedbootcamp" class="btn-pixel-inverse">PAY NOW</a>
                 
                 <div class="payment-stack">
                     <div class="payment-icons">
@@ -338,7 +338,7 @@
                 <p class="price">$100 USD</p>
                 <p class="small">Standard global tuition.</p>
                 
-                <a href="https://flutterwave.com/pay/vectorunleashed-usd" class="btn-pixel-inverse">PAY IN USD</a>
+                <a id="pay-usd" href="https://flutterwave.com/pay/vectorunleashed-usd" class="btn-pixel-inverse">PAY IN USD</a>
                 
                 <div class="payment-stack">
                     <div class="payment-icons">
@@ -350,7 +350,7 @@
         </div>
     </section>
 
-  <footer>
+    <footer>
         <div class="container footer-grid">
             
             <div class="footer-col brand-col">
@@ -397,5 +397,33 @@ Reserved.</p>
         </div>
     </footer>
 
-</body>
+    <script>
+        // Track African Payment Click
+        document.getElementById('pay-ngn').addEventListener('click', function() {
+            gtag('event', 'begin_checkout', {
+                'currency': 'NGN',
+                'value': 80000,
+                'item_name': 'Vector Unleashed (African Cohort)'
+            });
+        });
+
+        // Track International Payment Click
+        document.getElementById('pay-usd').addEventListener('click', function() {
+            gtag('event', 'begin_checkout', {
+                'currency': 'USD',
+                'value': 100,
+                'item_name': 'Vector Unleashed (Global Cohort)'
+            });
+        });
+
+        // Track Syllabus Download (NEW)
+        document.getElementById('download-syllabus').addEventListener('click', function() {
+            gtag('event', 'file_download', {
+                'file_name': 'Vector-Unleashed-Bootcamp-2026.pdf',
+                'file_extension': 'pdf',
+                'link_text': 'Download Syllabus [PDF]'
+            });
+        });
+    </script>
+    </body>
 </html>
